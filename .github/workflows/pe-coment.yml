@@ -5,7 +5,7 @@ on:
     branches: ["*"]
 
 jobs:
-  Coment:
+  Comment:
     runs-on: ubuntu-latest
     steps:      
       - env:
