@@ -10,6 +10,6 @@ jobs:
     steps:      
       - env:
           PR_NUMBER: ${{github.event.pull_request.number }} 
-          GH_TOKEN: ${{ secret.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:   
          gh pr Comment $PR_NUMBER --body "Hi from GitHub CLI" --erpo $GITHUB_REPOSITORY
