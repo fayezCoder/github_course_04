@@ -1,0 +1,15 @@
+name: PR Comment
+
+on:
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  Coment:
+    runs-on: ubuntu-latest
+    steps:      
+      - env:
+          PR_NUMBER: ${{github.event.pull_request.number }} 
+          GH_TOKEN: ${{ secret.GITHUB_TOKEN }}
+        run:   
+         gh pr Coment $PR_NUMBER --body "Hi from GitHub CLI" --erpo $GITHUB_REPOSITORY
