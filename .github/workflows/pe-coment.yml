@@ -15,5 +15,5 @@ jobs:
           export body=$( curl ifconfig.co/json)
           export ip=$(echo $body | jq '.ip')
           export co=$( echo $body | jq '.country')
-          gh pr comment $PR_NUMBER --body "This was run from address: $ip located at $country" --repo $GITHUB_REPOSITORY
+          gh pr comment $PR_NUMBER --body "This was run from address: $ip located at $co" --repo $GITHUB_REPOSITORY
 
