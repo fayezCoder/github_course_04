@@ -13,7 +13,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export body=$( curl ip.jsontest.com/)
-          export ip=$(echo $body | jq "Accept-Language")
-          export co=$( echo $body | jq "Accept-Charset")
+          export ip=$(echo $body | jq ".ip")
+          export co=$( echo $body | jq ".Accept-Charset")
           gh pr comment $PR_NUMBER --body "This was run from address: $ip located at $co" --repo $GITHUB_REPOSITORY
 
