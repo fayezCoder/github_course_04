@@ -12,8 +12,8 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }} 
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          export body=$( curl headers.jsontest.com/)
+          export body=$( curl date.jsontest.com/)
           export ip=$(echo $body | jq ".time")
           export co=$( echo $body | jq ".date")
-          gh pr comment $PR_NUMBER --body "This was time: $ip located at $co" --repo $GITHUB_REPOSITORY
+          gh pr comment $PR_NUMBER --body "This was time: $ip date to day $co" --repo $GITHUB_REPOSITORY
 
