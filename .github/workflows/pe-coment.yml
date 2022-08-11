@@ -12,8 +12,8 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }} 
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          export body=$( curl ifconfig.co/json)
-          export ip=$(echo $body | jq '.ip')
-          export co=$( echo $body | jq '.country')
+          export body=$( curl 'countries-cities.p.rapidapi.com/location/country/list')
+          export ip=$(echo $body | jq '.AE')
+          export co=$( echo $body | jq '.SA')
           gh pr comment $PR_NUMBER --body "This was run from address: $ip located at $co" --repo $GITHUB_REPOSITORY
 
